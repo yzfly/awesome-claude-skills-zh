@@ -1,0 +1,314 @@
+# Agent Skills
+
+## Docs
+
+- [Overview](https://agentskills.io/home.md): A simple, open format for giving agents new capabilities and expertise.
+- [Integrate skills into your agent](https://agentskills.io/integrate-skills.md): How to add Agent Skills support to your agent or tool.
+- [Specification](https://agentskills.io/specification.md): The complete format specification for Agent Skills.
+- [What are skills?](https://agentskills.io/what-are-skills.md): Agent Skills are a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows.
+
+# Overview
+
+> A simple, open format for giving agents new capabilities and expertise.
+
+Agent Skills are folders of instructions, scripts, and resources that agents can discover and use to do things more accurately and efficiently.
+
+## Why Agent Skills?
+
+Agents are increasingly capable, but often don't have the context they need to do real work reliably. Skills solve this by giving agents access to procedural knowledge and company-, team-, and user-specific context they can load on demand. Agents with access to a set of skills can extend their capabilities based on the task they're working on.
+
+**For skill authors**: Build capabilities once and deploy them across multiple agent products.
+
+**For compatible agents**: Support for skills lets end users give agents new capabilities out of the box.
+
+**For teams and enterprises**: Capture organizational knowledge in portable, version-controlled packages.
+
+## What can Agent Skills enable?
+
+* **Domain expertise**: Package specialized knowledge into reusable instructions, from legal review processes to data analysis pipelines.
+* **New capabilities**: Give agents new capabilities (e.g. creating presentations, building MCP servers, analyzing datasets).
+* **Repeatable workflows**: Turn multi-step tasks into consistent and auditable workflows.
+* **Interoperability**: Reuse the same skill across different skills-compatible agent products.
+
+## Adoption
+
+Agent Skills are supported by leading AI development tools.
+
+<div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-center justify-items-center">
+  <a href="https://opencode.ai/" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-light.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=eeb58f1665556a825d8cac06ff3c4394" alt="OpenCode" noZoom data-og-width="640" width="640" data-og-height="115" height="115" data-path="images/logos/opencode/opencode-wordmark-light.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-light.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=2e75d7596d2dadee9606266eaae7ae83 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-light.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=9b4d0ea14c4dd62a43fa3d7c79793a6b 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-light.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=5cf3786e492970a6855ee26153e3d31a 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-light.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=16baa4a67b8201a7baeebd54e135fe77 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-light.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=3de3eb3040b85171fb26dce0ad8c8a79 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-light.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=f420e9ae627623058acbbc77363c8c36 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-dark.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=d28a9bb63da536b5b1e1258bafa71a65" alt="OpenCode" noZoom data-og-width="641" width="641" data-og-height="115" height="115" data-path="images/logos/opencode/opencode-wordmark-dark.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-dark.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=ceee37f1c4c54ae2630a8554473758d1 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-dark.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=88216eacc79dab945a004c621a566bac 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-dark.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=50d2360351b4f12d6ae3522f22e3897b 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-dark.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=32d22385771853c427e979e2a9e9e2d8 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-dark.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=ce1af0755a122b4d1f1a58fd5ba36f15 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/opencode/opencode-wordmark-dark.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=6db1e7bb31145bb96e03cccc2826a152 2500w" />
+  </a>
+
+  <a href="https://cursor.com/" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_LIGHT.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=96db169c92f79bee00fade1ace1f3591" alt="Cursor" noZoom data-og-width="2239" width="2239" data-og-height="532" height="532" data-path="images/logos/cursor/LOCKUP_HORIZONTAL_2D_LIGHT.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_LIGHT.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=5f7fd6b1b61e8ae0570047a9eb723968 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_LIGHT.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=eb4c6933b838770b22525a70dc49e2aa 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_LIGHT.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=6e03628aae3b8d32e6878c0ae42b0519 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_LIGHT.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=d91070b4a9d786c2ccf40502f90b6047 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_LIGHT.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=694832c23c89106ebbd259c71284f664 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_LIGHT.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=93c3cf74331e0b2c9b030a93c38fa5c0 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_DARK.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=c9a7f00ed60afcbeca547ec9a44fc078" alt="Cursor" noZoom data-og-width="2239" width="2239" data-og-height="532" height="532" data-path="images/logos/cursor/LOCKUP_HORIZONTAL_2D_DARK.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_DARK.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=3c39a37d0555cc4f349437574b45042a 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_DARK.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=e16249811bb84af66a3a2ee7e08b3f6b 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_DARK.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=57ba6dfd585c68ef183007751c3d30f1 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_DARK.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=685428d83d6d69e76eebdb986d30b959 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_DARK.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=191b87d09c5c8669cbca1f5e9cfd3d33 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/cursor/LOCKUP_HORIZONTAL_2D_DARK.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=15827f45416d9f39cdd198223cb1871b 2500w" />
+  </a>
+
+  <a href="https://ampcode.com/" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '120px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-light.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=d8b047b17d68235bc95055f82963b0d4" alt="Amp" noZoom data-og-width="281" width="281" data-og-height="144" height="144" data-path="images/logos/amp/amp-logo-light.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-light.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=f06abb34f7e7554402e611f816be15be 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-light.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=581569f636a9ffbb4ccd6738bdbac2a4 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-light.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=11cc7e6325fc4c1a25dc64c960803ef9 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-light.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=1a78ef9e06f5ccfd04b9729abf9c5e79 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-light.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=2aeb38e12f4da8825370d6358ba2037d 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-light.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=005f205e0e09418967504ae2009561d7 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '120px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-dark.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=bc41bd818745f6c3b3bf3ca23babf1c2" alt="Amp" noZoom data-og-width="281" width="281" data-og-height="144" height="144" data-path="images/logos/amp/amp-logo-dark.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-dark.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=24ae375b813ec1f0e6e69d80ceff8594 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-dark.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=b9fe7785f775e62c87464c0145661d33 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-dark.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=49dd0806c1793913ca9b3bf7ff850030 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-dark.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=857fa2a22f023c5f89e8356073a538e8 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-dark.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=dbf9497f5b631efe04981ed356087981 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/amp/amp-logo-dark.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=eb76e2c4212c5901dd3ae49b0ca00e2e 2500w" />
+  </a>
+
+  <a href="https://www.letta.com/" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_OffBlackonTransparent.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=a4ba4657c3d8ee7826bdaed12a2d0824" alt="Letta" noZoom data-og-width="1940" width="1940" data-og-height="1080" height="1080" data-path="images/logos/letta/Letta-logo-RGB_OffBlackonTransparent.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_OffBlackonTransparent.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=8f1251d1a6a490bcbe8d59762664ee49 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_OffBlackonTransparent.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=f8f2914a2abd6618e85f56f314471a27 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_OffBlackonTransparent.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=3466fbec3f127354115f99e3ffc3aa5a 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_OffBlackonTransparent.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=96ed6974d9dc1ec6dec90516b0247de8 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_OffBlackonTransparent.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=5a769aba48dfd196f9f65130849209b6 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_OffBlackonTransparent.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=bf98314b9943f6b5c66dfceca7504a10 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_GreyonTransparent.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=e0b3b7f83cfbd90d737bf66263760d31" alt="Letta" noZoom data-og-width="1940" width="1940" data-og-height="1080" height="1080" data-path="images/logos/letta/Letta-logo-RGB_GreyonTransparent.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_GreyonTransparent.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=da06328f47c23b1fc92edcec160054f1 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_GreyonTransparent.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=f2fa8ad3a327044727fc802927197086 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_GreyonTransparent.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=a7adca5c348a9951688ec56e6f0afa90 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_GreyonTransparent.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=d8f7f2bb33348b8326723dcd53fcd79e 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_GreyonTransparent.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=74e1316fc8be024707e34083bfc6e751 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/letta/Letta-logo-RGB_GreyonTransparent.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=2344106b2b960a379d9f0031bd2c5baf 2500w" />
+  </a>
+
+  <a href="https://block.github.io/goose/" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-black.png?fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=8a50627518acef6d51ad70e4fc086b91" alt="Goose" noZoom data-og-width="1000" width="1000" data-og-height="389" height="389" data-path="images/logos/goose/goose-logo-black.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-black.png?w=280&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=5a1812e948e4692a07b7eafa78d00fdb 280w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-black.png?w=560&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=d929cb433d87f64f64d954c16eeba648 560w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-black.png?w=840&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=cc53cc7e0e7953d66c14a7040c41be52 840w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-black.png?w=1100&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=7ec17005ae8558bc7473a9cf512ca46b 1100w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-black.png?w=1650&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=327818a2c2b48d9e1ee0d0bb95df6b7c 1650w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-black.png?w=2500&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=7a69cff1d1330ccd673471193726910f 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-white.png?fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=42c415a9059fdd122ffffc233f5aa62c" alt="Goose" noZoom data-og-width="1000" width="1000" data-og-height="389" height="389" data-path="images/logos/goose/goose-logo-white.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-white.png?w=280&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=896a50ed5fac08cdabf636393b432c4b 280w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-white.png?w=560&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=243f14eb062689e73165d61c42bb84d6 560w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-white.png?w=840&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=21dc78e1727873b59b424046214c320a 840w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-white.png?w=1100&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=0f04d974fff1f6d20409df76c473c3ae 1100w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-white.png?w=1650&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=6789be97cecb93785b654610b8f0602d 1650w, https://mintcdn.com/agent-skills/aUl6sH_OARuhTQIw/images/logos/goose/goose-logo-white.png?w=2500&fit=max&auto=format&n=aUl6sH_OARuhTQIw&q=85&s=e8403c4924eff55e6d842e184cfdabdb 2500w" />
+  </a>
+
+  <a href="https://github.com/" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Dark.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=5b4a21ef1de6f18a52ab685df3f2c09c" alt="GitHub" noZoom data-og-width="367" width="367" data-og-height="90" height="90" data-path="images/logos/github/GitHub_Lockup_Dark.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Dark.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=e92f71590a4d3603bd56946856aff88f 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Dark.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=734b181daf4914bb9bdff66900214cd5 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Dark.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=f6d51f9401cd053847271f87cee03fee 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Dark.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=aa1d8beb3d200640365d9cb6dd3d9bdc 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Dark.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=a4230cc90aab5fe280678a77c93c4646 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Dark.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=39330547cc0d8fff34e7fee155b3b1f0 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Light.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=2fa805d2acf2c2bff3906b8f8506f946" alt="GitHub" noZoom data-og-width="367" width="367" data-og-height="90" height="90" data-path="images/logos/github/GitHub_Lockup_Light.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Light.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=aa747c7e3b52701d87381a73d506747b 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Light.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=34e57b6997accd84f24cf20c15dad195 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Light.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=62c4df5b11993332dc3bb6124e27520f 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Light.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=a4293057d1e437117440b4a1ea684b24 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Light.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=9cb9d30e8685404945636dc6cee28614 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/github/GitHub_Lockup_Light.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=5bd4246b998f108f0624435ff80c0367 2500w" />
+  </a>
+
+  <a href="https://code.visualstudio.com/" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode.svg?fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=8d7272e6bf497e6d5a310d5df8d96a31" alt="VS Code" noZoom data-og-width="451" width="451" data-og-height="105" height="105" data-path="images/logos/vscode/vscode.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode.svg?w=280&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=52996b33aed48cd4348281c04f3007f9 280w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode.svg?w=560&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=5d4d8789dbb4827ad6c6dfa7a040a4f5 560w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode.svg?w=840&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=d4e6239e4e0bd27adcd64e183e82ae0c 840w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode.svg?w=1100&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=94bcd98164287f1fde7764b3bae9097f 1100w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode.svg?w=1650&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=7f6279d4847573310542f4f1cdd25ae9 1650w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode.svg?w=2500&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=594ddee1ef7b765d170510939679d7dd 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode-alt.svg?fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=cd67d9621dcc7996a2af23c04b8667aa" alt="VS Code" noZoom data-og-width="451" width="451" data-og-height="105" height="105" data-path="images/logos/vscode/vscode-alt.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode-alt.svg?w=280&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=c7a770225cd79b70aca3cfa050a27f50 280w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode-alt.svg?w=560&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=0e8b8b70acfe7aebfb54212b7c097fff 560w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode-alt.svg?w=840&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=dd731c0f5b8d3144fa12df023b7fb14f 840w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode-alt.svg?w=1100&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=5655c38e3bd3f3c47ab0e8f84530f21d 1100w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode-alt.svg?w=1650&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=77d1b8f11784dc7357da4c0397ec9c4b 1650w, https://mintcdn.com/agent-skills/CEX0U_BzKcO91CZG/images/logos/vscode/vscode-alt.svg?w=2500&fit=max&auto=format&n=CEX0U_BzKcO91CZG&q=85&s=f46fbfdcd9fdf37e70f2b5a40c8850c7 2500w" />
+  </a>
+
+  <a href="https://claude.ai/code" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Slate.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=f9c1776db2268260a9a95aa6e779b5a8" alt="Claude Code" noZoom data-og-width="696" width="696" data-og-height="95" height="95" data-path="images/logos/claude-code/Claude-Code-logo-Slate.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Slate.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=6abdeb2b76aa1f88d3bbf14233b803a2 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Slate.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=3088881bf620241600721bd4e3b3467b 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Slate.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=d3e244f91edf87c740e13792d5193861 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Slate.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=09bb2fee4d6c75ab074f62212ade40a4 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Slate.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=3f8b36334a64db10a77143cd0743cce7 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Slate.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=490256252ea34f443ffe7935fcb69d46 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Ivory.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=07e2709558d4be658e08d2c6f1909c54" alt="Claude Code" noZoom data-og-width="696" width="696" data-og-height="95" height="95" data-path="images/logos/claude-code/Claude-Code-logo-Ivory.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Ivory.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=2348fb07abc12d2d92b56dc2eb518827 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Ivory.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=28d999252634153b98c63cb53cefd2fe 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Ivory.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=5728de43db7b29e8df35b335cd2ca8c9 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Ivory.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=6414432699b9997c6a27dec9e255d37b 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Ivory.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=c09c3343937bfb85211a805b9a530883 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-code/Claude-Code-logo-Ivory.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=2047a7acdb5b643c45b1f86b26ebcd83 2500w" />
+  </a>
+
+  <a href="https://claude.ai/" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Slate.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=6a90948209cf5947d7253ab2d956e8fa" alt="Claude" noZoom data-og-width="434" width="434" data-og-height="94" height="94" data-path="images/logos/claude-ai/Claude-logo-Slate.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Slate.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=abe1c5ed1ca7728a25bd3a93c5aabd11 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Slate.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=64ca4a25ac4767a4726f9a3fcd438eeb 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Slate.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=696d0b99b22c5729d64e43b80a4760e8 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Slate.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=41bd2416635542e04e3602879465c33a 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Slate.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=539a3c4e4e813d5a42fd3f6950681b8d 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Slate.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=d21ae0a3b257b426460eb84cfd19c11c 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Ivory.svg?fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=54da4b0bf53c5005a05c43b626ce59f6" alt="Claude" noZoom data-og-width="435" width="435" data-og-height="94" height="94" data-path="images/logos/claude-ai/Claude-logo-Ivory.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Ivory.svg?w=280&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=047e1a77f1fa68061ee32d58cdb0cba5 280w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Ivory.svg?w=560&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=b025974437330ed99f3b980ec44a5f38 560w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Ivory.svg?w=840&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=3ddb02445a1337f34104fd05a94672b7 840w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Ivory.svg?w=1100&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=f4c0c794c85245019202925b343003e0 1100w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Ivory.svg?w=1650&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=c1d324b2ecca330105a08dd10c1cff6d 1650w, https://mintcdn.com/agent-skills/dA2A66qiI3zp14E-/images/logos/claude-ai/Claude-logo-Ivory.svg?w=2500&fit=max&auto=format&n=dA2A66qiI3zp14E-&q=85&s=530976d6464efb0f97fe34369ad3110c 2500w" />
+  </a>
+
+  <a href="https://developers.openai.com/codex" style={{textDecoration: 'none', border: 'none'}}>
+    <img className="block dark:hidden object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px.svg?fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=f505b9eb7c087dedda1e960837d2785e" alt="OpenAI Codex" noZoom data-og-width="1395" width="1395" data-og-height="401" height="401" data-path="images/logos/oai-codex/OAI_Codex-Lockup_400px.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px.svg?w=280&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=f03a718f84dd0bb6799d7d977bf1233c 280w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px.svg?w=560&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=8bbc32733dae466ec8f57e63aad63c7c 560w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px.svg?w=840&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=6ffee132672e5b7016b530cd55b60b8e 840w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px.svg?w=1100&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=70919e856527eaf124f785a6ab6bfac3 1100w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px.svg?w=1650&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=e7fd76f0d161da306ebe8e4d49ff9d8d 1650w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px.svg?w=2500&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=1c1fcb7181b6cad5f41105a7c9ad4606 2500w" />
+
+    <img className="hidden dark:block object-contain" style={{width: '150px', maxWidth: '100%'}} src="https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px_Darkmode.svg?fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=289a3a60c7067692269a9d22a9c6a762" alt="OpenAI Codex" noZoom data-og-width="905" width="905" data-og-height="400" height="400" data-path="images/logos/oai-codex/OAI_Codex-Lockup_400px_Darkmode.svg" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px_Darkmode.svg?w=280&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=5bdc40029607a38f219660532ddb7ecf 280w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px_Darkmode.svg?w=560&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=044611e083b78cc4e2dfd0f8477d0611 560w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px_Darkmode.svg?w=840&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=ff8d09c007674541b9090707fe4d5d15 840w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px_Darkmode.svg?w=1100&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=763a0aece3b14cd35efbd492f3966bbe 1100w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px_Darkmode.svg?w=1650&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=62f6bf64e075025129131d8b7414ddb0 1650w, https://mintcdn.com/agent-skills/QrL_Ot_XZTx_nfN1/images/logos/oai-codex/OAI_Codex-Lockup_400px_Darkmode.svg?w=2500&fit=max&auto=format&n=QrL_Ot_XZTx_nfN1&q=85&s=f7c20f51bb27a01051e673b749542e89 2500w" />
+  </a>
+</div>
+
+## Open development
+
+The Agent Skills format was originally developed by [Anthropic](https://www.anthropic.com/), released as an open standard, and has been adopted by a growing number of agent products. The standard is open to contributions from the broader ecosystem.
+
+[View on GitHub](https://github.com/agentskills/agentskills)
+
+## Get started
+
+<CardGroup cols={3}>
+  <Card title="What are skills?" icon="lightbulb" href="/what-are-skills">
+    Learn about skills, how they work, and why they matter.
+  </Card>
+
+  <Card title="Specification" icon="file-code" href="/specification">
+    The complete format specification for SKILL.md files.
+  </Card>
+
+  <Card title="Integrate skills" icon="gear" href="/integrate-skills">
+    Add skills support to your agent or tool.
+  </Card>
+
+  <Card title="Example skills" icon="code" href="https://github.com/anthropics/skills">
+    Browse example skills on GitHub.
+  </Card>
+
+  <Card title="Reference library" icon="wrench" href="https://github.com/agentskills/agentskills/tree/main/skills-ref">
+    Validate skills and generate prompt XML.
+  </Card>
+</CardGroup>
+
+
+---
+
+> To find navigation and other pages in this documentation, fetch the llms.txt file at: https://agentskills.io/llms.txt
+
+
+# What are skills?
+
+> Agent Skills are a lightweight, open format for extending AI agent capabilities with specialized knowledge and workflows.
+
+At its core, a skill is a folder containing a `SKILL.md` file. This file includes metadata (`name` and `description`, at minimum) and instructions that tell an agent how to perform a specific task. Skills can also bundle scripts, templates, and reference materials.
+
+```directory  theme={null}
+my-skill/
+├── SKILL.md          # Required: instructions + metadata
+├── scripts/          # Optional: executable code
+├── references/       # Optional: documentation
+└── assets/           # Optional: templates, resources
+```
+
+## How skills work
+
+Skills use **progressive disclosure** to manage context efficiently:
+
+1. **Discovery**: At startup, agents load only the name and description of each available skill, just enough to know when it might be relevant.
+
+2. **Activation**: When a task matches a skill's description, the agent reads the full `SKILL.md` instructions into context.
+
+3. **Execution**: The agent follows the instructions, optionally loading referenced files or executing bundled code as needed.
+
+This approach keeps agents fast while giving them access to more context on demand.
+
+## The SKILL.md file
+
+Every skill starts with a `SKILL.md` file containing YAML frontmatter and Markdown instructions:
+
+```mdx  theme={null}
+---
+name: pdf-processing
+description: Extract text and tables from PDF files, fill forms, merge documents.
+---
+
+# PDF Processing
+
+## When to use this skill
+Use this skill when the user needs to work with PDF files...
+
+## How to extract text
+1. Use pdfplumber for text extraction...
+
+## How to fill forms
+...
+```
+
+The following frontmatter is required at the top of `SKILL.md`:
+
+* `name`: A short identifier
+* `description`: When to use this skill
+
+The Markdown body contains the actual instructions and has no specific restrictions on structure or content.
+
+This simple format has some key advantages:
+
+* **Self-documenting**: A skill author or user can read a `SKILL.md` and understand what it does, making skills easy to audit and improve.
+
+* **Extensible**: Skills can range in complexity from just text instructions to executable code, assets, and templates.
+
+* **Portable**: Skills are just files, so they're easy to edit, version, and share.
+
+## Next steps
+
+* [View the specification](/specification) to understand the full format.
+* [Add skills support to your agent](/integrate-skills) to build a compatible client.
+* [See example skills](https://github.com/anthropics/skills) on GitHub.
+* [Read authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) for writing effective skills.
+* [Use the reference library](https://github.com/agentskills/agentskills/tree/main/skills-ref) to validate skills and generate prompt XML.
+
+
+---
+
+> To find navigation and other pages in this documentation, fetch the llms.txt file at: https://agentskills.io/llms.txt
+
+# Integrate skills into your agent
+
+> How to add Agent Skills support to your agent or tool.
+
+This guide explains how to add skills support to an AI agent or development tool.
+
+## Integration approaches
+
+The two main approaches to integrating skills are:
+
+**Filesystem-based agents** operate within a computer environment (bash/unix) and represent the most capable option. Skills are activated when models issue shell commands like `cat /path/to/my-skill/SKILL.md`. Bundled resources are accessed through shell commands.
+
+**Tool-based agents** function without a dedicated computer environment. Instead, they implement tools allowing models to trigger skills and access bundled assets. The specific tool implementation is up to the developer.
+
+## Overview
+
+A skills-compatible agent needs to:
+
+1. **Discover** skills in configured directories
+2. **Load metadata** (name and description) at startup
+3. **Match** user tasks to relevant skills
+4. **Activate** skills by loading full instructions
+5. **Execute** scripts and access resources as needed
+
+## Skill discovery
+
+Skills are folders containing a `SKILL.md` file. Your agent should scan configured directories for valid skills.
+
+## Loading metadata
+
+At startup, parse only the frontmatter of each `SKILL.md` file. This keeps initial context usage low.
+
+### Parsing frontmatter
+
+```
+function parseMetadata(skillPath):
+    content = readFile(skillPath + "/SKILL.md")
+    frontmatter = extractYAMLFrontmatter(content)
+
+    return {
+        name: frontmatter.name,
+        description: frontmatter.description,
+        path: skillPath
+    }
+```
+
+### Injecting into context
+
+Include skill metadata in the system prompt so the model knows what skills are available.
+
+Follow your platform's guidance for system prompt updates. For example, for Claude models, the recommended format uses XML:
+
+```xml  theme={null}
+<available_skills>
+  <skill>
+    <name>pdf-processing</name>
+    <description>Extracts text and tables from PDF files, fills forms, merges documents.</description>
+    <location>/path/to/skills/pdf-processing/SKILL.md</location>
+  </skill>
+  <skill>
+    <name>data-analysis</name>
+    <description>Analyzes datasets, generates charts, and creates summary reports.</description>
+    <location>/path/to/skills/data-analysis/SKILL.md</location>
+  </skill>
+</available_skills>
+```
+
+For filesystem-based agents, include the `location` field with the absolute path to the SKILL.md file. For tool-based agents, the location can be omitted.
+
+Keep metadata concise. Each skill should add roughly 50-100 tokens to the context.
+
+## Security considerations
+
+Script execution introduces security risks. Consider:
+
+* **Sandboxing**: Run scripts in isolated environments
+* **Allowlisting**: Only execute scripts from trusted skills
+* **Confirmation**: Ask users before running potentially dangerous operations
+* **Logging**: Record all script executions for auditing
+
+## Reference implementation
+
+The [skills-ref](https://github.com/agentskills/agentskills/tree/main/skills-ref) library provides Python utilities and a CLI for working with skills.
+
+For example:
+
+**Validate a skill directory:**
+
+```
+skills-ref validate <path>
+```
+
+**Generate `<available_skills>` XML for agent prompts:**
+
+```
+skills-ref to-prompt <path>...
+```
+
+Use the library source code as a reference implementation.
+
+
+---
+
+> To find navigation and other pages in this documentation, fetch the llms.txt file at: https://agentskills.io/llms.txt
